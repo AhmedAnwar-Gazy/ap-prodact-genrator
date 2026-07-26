@@ -1,0 +1,381 @@
+const fs = require('fs');
+const path = require('path');
+
+const faqData = [
+  {
+    q_ar: "ما هي أعواد القطن الخشبية الطبيعية 100 عود؟",
+    a_ar: "أعواد القطن الخشبية هي مستلزمات صحية وشخصية مصنوعة من رؤوس من القطن الطبيعي الصافي 100% المقاوم للتسلل مع مقبض متين مصنع من الخشب الطبيعي المستدام. تُستخدم هذه الأعواد في مجالات متعددة تشمل العناية بالبشرة، التجميل والتعديل الدقيق للمكياج، تنظيف الأذن الخارجي، وتطبيق العلاجات الموضعية والمطهرات بأمان ونظافة فائقة.",
+    q_en: "What are the 100-Count Natural Cotton & Wood Swabs?",
+    a_en: "Natural Cotton & Wood Swabs are multi-purpose personal hygiene tools featuring tips made of 100% pure natural cotton wound around a sturdy, sustainable wooden stick. Designed for high versatility, they are ideal for skincare application, precise makeup correction, cleaning external ear surfaces, and applying topical antiseptics or ointments safely."
+  },
+  {
+    q_ar: "مما تتكون الرؤوس القطنية والمقابض في هذا المنتج؟",
+    a_ar: "تتكون الرؤوس القطنية من ألياف قطن طبيعية خالية تماماً من المكونات الاصطناعية أو المبيضات الكلورية القاسية، مما يجعلها ناعمة جداً على البشرة الحساسة. أما المقابض فهي مصنوعة من خشبيات طبيعية مصقولة بعناية لضمان قوة التماسك وعدم الانثناء أو الانكسار المفاجئ أثناء الاستخدام.",
+    q_en: "What materials are used for the cotton heads and sticks?",
+    a_en: "The swab heads are crafted from 100% pure, natural cotton fibers free from synthetic additives or harsh chlorine bleach, ensuring ultra-soft contact with sensitive skin. The handles are constructed from smooth, high-density natural wood that provides excellent structural firmness without bending or snapping unexpectedly."
+  },
+  {
+    q_ar: "هل تناديك أعواد القطن الخشبية بأنها صديقة للبيئة؟",
+    a_ar: "نعم، تعتبر هذه الأعواد الخشبية بديلاً مثالياً وعالياً الجودة للأعواد البلاستيكية التقليدية التي تلوث البيئة. يتميز القطن والخشب بأنهما مواد قابلة للتحلل الحيوي بنسبة 100% وتتفكك بشكل طبيعي دون ترك مخلّفات بلاستيكية ضارة أو دقيقة في البيئة البحرية والتربة.",
+    q_en: "Are these wooden cotton swabs eco-friendly and biodegradable?",
+    a_en: "Yes, these wooden cotton swabs serve as an eco-conscious alternative to single-use plastic swabs. Both the natural cotton tips and the wooden handles are 100% biodegradable and compostable, decomposing naturally without leaving microplastic residues in oceans or soil systems."
+  },
+  {
+    q_ar: "هل يمكن استخدام الأعواد لتنظيف الأذن من الداخل؟",
+    a_ar: "يُمنع منعاً باتاً إدخال الأعواد القطنية داخل قناة الأذن الداخلية لأن ذلك قد يدفع الشمع إلى العمق باتجاه طبلة الأذن أو يسبب إحداث ثقب في الغشاء. الاستخدام الموصى به طبياً يقتصر على تنظيف الأجزاء الخارجية من صوان الأذن والمناطق المحيطة بها فقط.",
+    q_en: "Can these cotton swabs be used to clean inside the ear canal?",
+    a_en: "No, cotton swabs should never be inserted into the inner ear canal as this can push earwax deeper toward the eardrum or cause mechanical injury and perforation. Medical consensus recommends using swabs exclusively for cleaning the external outer ear (pinna) and surrounding folds."
+  },
+  {
+    q_ar: "كيف يُستفاد من الأعواد القطنية في تطبيق المكياج والتجميل؟",
+    a_ar: "تُعد الأعواد القطنية أداة أساسية في حقيبة المكياج لتصحيح أخطاء الكحل والماسكارا بدقة متناهية، ومزج ظلال العيون في الزوايا الضيقة، وتحديد حواف أحمر الشفاه. بفضل امتصاصيتها ورأسها المصمم بإتقان، توفر تحكماً دقيقاً يغني عن إفساد المكياج الكامل.",
+    q_en: "How are cotton swabs used for makeup application and touch-ups?",
+    a_en: "Cotton swabs are an indispensable tool for beauty enthusiasts, allowing precise corrections of eyeliner smudges, mascara spots, and lipstick feathering. Their absorbent cotton tips provide pinpoint precision for blending eyeshadows or erasing fine cosmetic errors without disrupting the rest of your makeup."
+  },
+  {
+    q_ar: "هل يناسب هذا المنتج استخدامات الأطفال والرُضع؟",
+    a_ar: "نعم، يمكن استخدام الأعواد بحذر شديد للعناية بالطفل مثل تنظيف ثنايا الجلد الخارجية، حول منطقة السرة الجافة، أو تطبيق المطهرات المعقمة. يجب الحرص دائماً على عدم إدخال العود في أنف أو أذن الطفل إطلاقاً وإبقائها بعيدة عن حركات الطفل المفاجئة.",
+    q_en: "Are these cotton swabs safe for baby care and infants?",
+    a_en: "Yes, they can be used with extreme care for delicate baby hygiene, such as gently cleaning skin folds, outer ears, or around the dried umbilical cord stump. Caregivers must ensure they never insert swabs into a baby's nose or ear canal and keep them stable against sudden infant movement."
+  },
+  {
+    q_ar: "ما هي مزايا المقبض الخشبي مقارنة بالمقبض البلاستيكي؟",
+    a_ar: "يوفر المقبض الخشبي صلابة وثباتاً أفضل أثناء الاستخدام، مما يمنع انثناء العود عند تطبيق الضغط الخفيف لتنظيف الجروح أو التعديل الدقيق. بالإضافة إلى ذلك، يمنح الخشب ملمساً مريحاً وقبضة محكمة فضلاً عن كونه خالياً من السموم ومستداماً بيئياً.",
+    q_en: "What are the advantages of wooden handles over plastic ones?",
+    a_en: "Wooden handles offer superior structural rigidity and firmness compared to flexible plastic sticks. They do not bend easily under light pressure, ensuring precise application during wound care or detail cleaning, while also providing a natural non-toxic texture and 100% environmental sustainability."
+  },
+  {
+    q_ar: "هل تتساقط ألياف القطن أو تترك الخيوط على الجلد أثناء الاستخدام؟",
+    a_ar: "تم لف الرؤوس القطنية وتقنيتها بعناية فائقة لضمان تماسك الألياف وتثبيتها بشكل إحكام حول المقبض الخشبي. هذا يمنع تفكك القطن أو انشطاره أو ترك أي ألياف خيطية سائبة على الجروح مفتوحة أو عند العناية بالبشرة والمكياج.",
+    q_en: "Do the cotton fibers shed or leave lint behind during use?",
+    a_en: "No, the cotton tips are tightly wound and thermal-processed to maintain structural integrity. This high-density winding prevents fiber shedding, fraying, or leaving unwanted lint on open skin areas, surgical wounds, or wet cosmetic applications."
+  },
+  {
+    q_ar: "هل يمكن استخدام الأعواد لتطبيق المراهم العلاجية والمطهرات؟",
+    a_ar: "بالتأكيد، تُعتبر هذه الأعواد وسيلة صحية ممتازة لتطبيق الكريمات والمراهم والمطهرات الطبية على الجروح السطحية والخدوش والعدس البثري دون الحاجة للمس الجرح باليد، مما يمنع انتقال البكتيريا والعدوى الثانوية إلى البشرة.",
+    q_en: "Can these swabs be used to apply medical ointments and antiseptics?",
+    a_en: "Absolutely. Using cotton swabs is a highly hygienic practice for applying topical antibiotics, antiseptic liquids, and healing ointments onto minor cuts or blemishes. This avoids direct finger contact, dramatically reducing the risk of bacterial contamination and cross-infection."
+  },
+  {
+    q_ar: "هل الأعواد معقمة بشكل فردي؟",
+    a_ar: "هذه الأعواد تأتي في عبوة صحية تحتوي على 100 عود وهي مخصصة للاستخدام الشخصي اليومي المنزلي والتجميلي، وليست معقمة فردياً بأسلوب الجراحة الطبية الشديدة. ينبغي حفظ العبوة مغلقة بعد كل استخدام للحفاظ على نظافتها.",
+    q_en: "Are these cotton swabs individually sterilized?",
+    a_en: "These swabs are supplied in a hygienic bulk pack of 100 counts designed for non-surgical personal care and cosmetic use. While manufactured under high hygienic standards, they are non-sterile medical devices and should be stored closed to maintain cleanliness."
+  },
+  {
+    q_ar: "كيف تساهم الأعواد الخشبية في تنظيف الأجهزة الإلكترونية والشاشات؟",
+    a_ar: "تستعين الكثير من العائلات بهذه الأعواد لتنظيف الفجوات الدقيقة في لوحة المفاتيح، منافذ شحن الهواتف، وعدسات الكاميرات. يوفر القطن الممتص والمقبض الخشبي القوي أداة دقيقة لإزالة الأتربة دون إحداث خدوش في الأجزاء الدقيقة.",
+    q_en: "Can these swabs be used for electronic equipment detail cleaning?",
+    a_en: "Yes, their precision tip and sturdy handle make them ideal for delicate cleaning of keyboard crevices, smartphone charging ports, camera lenses, and hobby crafts. The absorbent cotton lifts dust and residue safely without scratching delicate components."
+  },
+  {
+    q_ar: "ما هي الكمية الموجودة في العبوة؟",
+    a_ar: "تحتوي العبوة الواحدة على 100 عود قطني خشبي عالي الجودة مقسمة بشكل مرتب وسهل السحب. توفر هذه الكمية تغطية ممتازة للااحتياجات اليومية لجميع أفراد الأسرة لفترة طويلة وبسعر اقتصادي مناسب.",
+    q_en: "How many swabs are included in one package?",
+    a_en: "Each package contains exactly 100 high-quality natural wooden cotton swabs neatly organized for easy dispensing. This count offers great value and longevity for daily family hygiene, skincare, and beauty requirements."
+  },
+  {
+    q_ar: "ما هي طريقة التخزين الصحيحة لأعواد القطن؟",
+    a_ar: "يُنصح بتخزين العبوة في مكان جاف ونظيف بعيداً عن الرطوبة المباشرة ورشاشات المياه في الحمام. يفضل إبقاء العبوة مغلقة أو نقل الأعواد إلى حافظة مغلقة لحمايتها من الغبار والتلوث الجوي.",
+    q_en: "What is the recommended storage condition for cotton swabs?",
+    a_en: "Cotton swabs should be stored in a dry, clean place protected from ambient moisture and direct water splashes. Keeping the original package sealed or placing the swabs inside a covered container ensures optimal hygiene and dust protection."
+  },
+  {
+    q_ar: "هل يحتوي المنتج على أي عطور أو مواد كيميائية مضافة؟",
+    a_ar: "لا، هذا المنتج خالي تماماً من أي عطور اصطناعية، صبغات كيميائية، أو مواد الحافظة القاسية. تم تصميم القطن والخشب بصورتهما الطبيعية ليكون آمناً تماماً للبشرة الحساسة والعيون المتهيجة.",
+    q_en: "Does this product contain any added fragrances or synthetic chemicals?",
+    a_en: "No, this product is completely free from added fragrances, artificial dyes, fluorescent brighteners, or chemical preservatives. The pure natural cotton and untreated wood ensure maximum safety for sensitive skin and eyes."
+  },
+  {
+    q_ar: "هل يمكن دمج الأعواد مع مزيل المكياج السائل أو ماء الميسيلار؟",
+    a_ar: "نعم، يمتص القطن الطبيعي مزيل المكياج أو ماء الميسيلار بسرعة وكفاءة عالية دون أن يتمدد أو يتفكك الملمس. يساعدكِ ذلك على تحديد ومسح الرتوش الدقيقة مثل كحل العين السائل بسهولة وسرعة.",
+    q_en: "Can these swabs be saturated with makeup remover or micellar water?",
+    a_en: "Yes, the 100% natural cotton fibers readily absorb micellar water, eye makeup removers, or facial oils without dissolving the cotton head. This enables smooth and effortless cleanup of precise cosmetic lines."
+  },
+  {
+    q_ar: "هل ينكسر المقبض الخشبي بسهولة أثناء الاستخدام؟",
+    a_ar: "تم اختيار نوعية خشب عالية الكثافة وتصنيع المقبض بسماكة متوازنة لمنع الانكاسار أثناء الاستخدام الطبيعي. الخشب يتحمل الضغط المعتدل بشكل أفضل بكثير من الأعواد البلاستيكية الضعيفة أو الأعواد الورقية المطوية.",
+    q_en: "Is the wooden handle prone to snapping or splintering during use?",
+    a_en: "No, the handles are crafted from smooth, high-density wood selected for tensile strength. They resist snapping under normal application pressure far better than flimsy plastic or soft paper sticks."
+  },
+  {
+    q_ar: "هل هذا المنتج مناسب لصالونات التجميل ومراكز العناية؟",
+    a_ar: "نعم، يُعتبر الخيار المفضل لدى خبراء التجميل وصالونات الحلاقة والعناية بالبشرة بفضل مظهره الطبيعي الأنيق، وقدرته الدقيقة على تنظيف وتشكيل الحواجب والرموش، فضلاً عن كونه منتجاً استخدام مرة واحدة يحافظ على النظافة.",
+    q_en: "Is this product suitable for professional beauty salons and spas?",
+    a_en: "Yes, beauty professionals and estheticians widely prefer wooden cotton swabs for lash tinting, eyebrow shaping, nail art cleanup, and facial treatment applications due to their premium look, stability, and single-use hygiene."
+  },
+  {
+    q_ar: "ما هي احتياطات السلامة عند استخدام الأعواد مع الأطفال؟",
+    a_ar: "يجب دائماً استخدام الأعواد تحت إشراف بالغين وتجنب ترك الأطفال يعبثون بالأعواد بمفردهم لتجنب إدخالها بالخطأ في العين أو الأذن. كما ينبغي التأكد من عدم الحركة الفجائية للطفل أثناء المسح الخارجي.",
+    q_en: "What safety measures should be taken when using swabs on children?",
+    a_en: "Always ensure adult supervision and keep the swab box out of reach of young children. Never allow children to hold or use cotton swabs independently, and stabilize the child's head to prevent sudden movements during outer hygiene care."
+  },
+  {
+    q_ar: "هل الخشب المستخدم خالي من الشظايا والنتوءات الحادة؟",
+    a_ar: "نعم، يمر الخشب بمراحل صقل متعددة وتلميع ميكانيكي دقيق لضمان سطح أملس تماماً وخالٍ من الشظايا أو الخشونة، مما يضمن أمان اليدين والبشرة عند الإمساك به واستخدامه.",
+    q_en: "Is the wooden handle polished to prevent splinters?",
+    a_en: "Yes, the wooden sticks undergo rigorous mechanical polishing and smoothing to eliminate any rough edges or potential splinters. This ensures a comfortable, safe tactile grip for every user."
+  },
+  {
+    q_ar: "هل يساعد هذا المنتج في تطبيق زيت الشاي الأخضر على البثور؟",
+    a_ar: "بالتأكيد، تُعتبر الأعواد القطنية الأداة المثالية لتطبيق قطرات مركزة من زيت شجرة الشاي أو العلاجات الموضعية لحب الشباب على البثور الفردية مباشرة دون نشر الزيت على باقي مناطق الوجه السليمة.",
+    q_en: "Can these swabs be used for spot-treating acne with tea tree oil?",
+    a_en: "Yes, they provide the exact precision needed to apply concentrated spot treatments like tea tree oil or salicylic acid directly onto active pimples without dispersing potent active ingredients onto healthy surrounding skin."
+  },
+  {
+    q_ar: "ما هو الفارق بين الأعواد الخشبية والأعواد ذات السيقان الورقية؟",
+    a_ar: "الأعواد الخشبية تتميز بقوة صلابة أعلى ومقاومة كاملة للترطيب والبلل، حيث لا تترطب أو تلين الساق الخشبية عند تغميسها في السوائل أو المحاليل المائية، بعكس السيقان الورقية التي قد تلين وتفقد قوامها مع الرطوبة.",
+    q_en: "How do wooden swabs compare to paper-stem swabs?",
+    a_en: "Wooden swabs offer significantly superior mechanical strength and water resistance. Unlike paper stems, which can soften, bend, or unravel when dipped into liquid solutions or ointments, wooden sticks remain perfectly rigid."
+  },
+  {
+    q_ar: "هل يمكن إلقاء الأعواد الخشبية في السماد المنزلي (Compost)؟",
+    a_ar: "نعم، بما أن الأعواد تتكون من قطن نقي وخشب طبيعي بدون طلاء كيميائي أو بلاستيك، فيمكن إضافتها بأمان إلى حاويات التسميد الحيوي المنزلي حيث تتحلل وتتحول إلى مادة عضوية مفيدة للتربة.",
+    q_en: "Can these wooden swabs be added to home compost bins?",
+    a_en: "Yes, because they consist solely of unbleached pure cotton and natural untreated wood, they are 100% compostable and can safely break down in residential compost systems into organic soil nutrient matter."
+  },
+  {
+    q_ar: "كيف يمكن استخدامها في العناية بالأظافر والمانيكير؟",
+    a_ar: "تُستخدم الأعواد المبللة بقليل من مزيل طلاء الأظافر لإزالة الزوائد والطلاء المتسرب على الجلد المحيط بالأظافر بدقة وتنسيق حواف المانيكير للحصول على مظاهر أظافر احترافية ومثالية.",
+    q_en: "How are these swabs useful for nail care and manicures?",
+    a_en: "When dipped in nail polish remover, the fine cotton tip allows easy, precise cleanup of excess polish spilled onto the cuticles or skin surrounding the fingernails, creating a polished, salon-grade manicure."
+  },
+  {
+    q_ar: "هل الأعواد قابلة لإعادة الاستخدام أم مخصصة للاستخدام المرة الواحدة؟",
+    a_ar: "الأعواد القطنية مصممة للاستخدام لمرة واحدة فقط لضمان أقصى درجات النظافة والوقاية من التلوث الجرثومي. يجب التخلص من العود بمسؤولية في سلة المهملات بعد كل استخدام.",
+    q_en: "Are these cotton swabs reusable or single-use?",
+    a_en: "These swabs are strictly designed for single-use application to guarantee optimal hygiene and prevent bacterial accumulation or cross-contamination. They should be disposed of responsibly after each use."
+  },
+  {
+    q_ar: "من أين يمكن شراء أعواد القطن الخشبية الطبيعية 100 عود؟",
+    a_ar: "يمكنك شراء هذا المنتج الأصلي المكون من 100 عود قطني خشبي طبيعي مباشرة عبر موقع صيدلية إكليل أبها الإلكتروني أو زيارة فروعنا، مع ضمان جودة المنتج والتوصيل السريع إلى كافة مناطق المملكة.",
+    q_en: "Where can I purchase the authentic 100-Count Cotton & Wood Swabs?",
+    a_en: "You can purchase authentic 100-Count Natural Cotton & Wood Swabs directly from the Ekleel Abha Pharmacy online store or physical branches, guaranteed for high quality and fast delivery across Saudi Arabia."
+  }
+];
+
+let ar_faqs_html = "";
+let en_faqs_html = "";
+
+faqData.forEach(item => {
+  ar_faqs_html += `<h3>${item.q_ar}</h3>\n<p>${item.a_ar}</p>\n\n`;
+  en_faqs_html += `<h3>${item.q_en}</h3>\n<p>${item.a_en}</p>\n\n`;
+});
+
+const productJson = {
+  "product_id": "6599",
+  "sku": "EK-6599",
+  "category": "العناية الشخصية / المستلزمات القطنية",
+  "brand": "إكليل العناية",
+  "ar": {
+    "title": "أعواد قطنية 100 عود مصنوعة من القطن والخشب الطبيعي",
+    "meta_title": "أعواد قطنية خشبي 100 عود قطن طبيعي | إكليل أبها",
+    "meta_description": "تسوق أعواد قطنية 100 عود خشبية وطبيعية 100% للتنظيف الدقيق، العناية بالبشرة، والمكياج. آمنة وصديقة للبيئة. اطلبها من صيدلية إكليل أبها.",
+    "description": `<h2>نظرة عامة على المنتج</h2>
+<p>تُعتبر <strong>أعواد القطن الخشبية المصنوعة من القطن والخشب الطبيعي (100 عود)</strong> الخيار الأمثل والآمن لكل عائلة تبحث عن العناية الشخصية والنظافة الدقيقة مع الالتزام بالحفاظ على البيئة. تم تصنيع هذه الأعواد بعناية فائقة من ألياف القطن الطبيعي النقي 100% الخالي تماماً من المواد الكيميائية القاسية والمبيضات الاصطناعية، مما يجعل رؤوسها فائقة النعومة ولطيفة تماماً على البشرة الأكثر حساسية دون أن تسبب أي تهيج أو تساقط للألياف.</p>
+<p>تتميز هذه العبوة الاقتصادية التي تحتوي على 100 عود بمقابض خشبية متينة ومصقولة بعناية توفر ثباتاً وقوة استثنائية أثناء الاستخدام، بعكس الأعواد البلاستيكية الضعيفة التي تتثنى وتلوث البيئة. تُستخدم هذه الأعواد في مجالات لا حصر لها، بدءاً من تعديل المكياج بدقة متناهية، والعناية بالبشرة والأطفال، وتطبيق المطهرات والمراهم الطبية على الجروح السطحية، وحتى تنظيف الأجهزة الإلكترونية والأدوات الدقيقة بنظافة احترافية.</p>
+
+<h2>الفوائد الرئيسية</h2>
+<ul>
+  <li><strong>قطن طبيعي نقي 100%:</strong> رؤوس قطنية خالية من الألياف الاصطناعية توفر امتصاصاً عالياً ولمسة ناعمة وآمنة للبشرة الحساسة.</li>
+  <li><strong>مقبض خشبي طبيعي ومتين:</strong> يوفر المقبض المصنوع من الخشب الطبيعي الصلابة المطلوبة والتحكم الدقيق دون انثناء أو انكسار أثناء الاستخدام.</li>
+  <li><strong>صديق للبيئة وقابل للتحلل:</strong> منتج مستدام 100% وخالي من البلاستيك، يتفكك حيوي طبيعياً ليحافظ على البيئة والبحار.</li>
+  <li><strong>متعدد الاستخدامات اليومية:</strong> مثالي للعناية الشخصية، تعديل المكياج، تنظيف الأذن الخارجي، وتطبيق العلاجات الطبية الموضعية.</li>
+  <li><strong>ثبات الألياف وعدم التنسل:</strong> رؤوس قطنية ملفوفة بإحكام تمنع تساقط الألياف أو ترك بقايا قطنية على الجروح أو البشرة.</li>
+  <li><strong>عبوة اقتصادية 100 عود:</strong> كمية مثالية ومناسبة للاستخدام العائلي واليومي لفترات طويلة وبسعر اقتصادي متناول للجميع.</li>
+  <li><strong>آمن وخالي من العطور:</strong> خالي من العطور والصبغات والمواد الحافظة القاسية، مما يضمن أماناً كاملاً لجميع أفراد الأسرة.</li>
+</ul>
+
+<h2>طريقة الاستخدام</h2>
+<ul>
+  <li><strong>للتنظيف الشخصي الخارجي:</strong> اغمسي الرأس القطني في الماء أو المحلول المناسب وامسحي بنعومة الأجزاء الخارجية من صوان الأذن أو ثنايا الجلد.</li>
+  <li><strong>لتعديل المكياج والتجميل:</strong> استخدمي رأس العود القطني الجاف أو المبلل بقليل من مزيل المكياج لمسح خطوط الكحل أو الماسكارا الزائدة بدقة دقيقة.</li>
+  <li><strong>لتطبيق المستحضرات والمطهرات الطبية:</strong> ضعي كمية صغيرة من المرهم أو المطهر على رأس العود ثم وزعيها برفق على المنطقة المصابة دون لمسها بالأصابع.</li>
+  <li><strong>للتنظيف الدقيق للأدوات:</strong> مرري العود القطني في الفجوات والزوايا الضيقة للأجهزة الإلكترونية أو المجوهرات لإزالة الأتربة.</li>
+  <li><strong>التخلص الصحي:</strong> بعد انتهاء الاستخدام، تخلصي من العود المستعمل في سلة المهملات بمسؤولية ولا تقومي بفرزه في المرحاض.</li>
+</ul>
+
+<h2>نظرة عامة على المكونات</h2>
+<ul>
+  <li><strong>قطن طبيعي 100% (Pure Natural Cotton):</strong> ألياف قطن ناصعة طبيعياً تتميز بقدرة عالية جداً على امتصاص السوائل والمرطبات والزيوت دون الحاجة لمعالجات كيميائية ضارة.</li>
+  <li><strong>خشب طبيعي مستدام (Natural Birch Wood):</strong> خشب طبيعي مصقول بدقة يمنح المقبض الصلابة والملمس الناعم المريح دون حواف حادة أو شظايا.</li>
+  <li><strong>مواد تماسك آمنة بمائية القاعدة (Non-Toxic Water-Based Adhesive):</strong> لاصق آمن وغير سحي يستخدم لتثبيت الرأس القطني على العود الخشبي بإحكام دون انفكاك.</li>
+</ul>
+
+<h2>تحذيرات واحتياطات</h2>
+<ul>
+  <li>يُحظر إدخال العود القطني إطلاقاً داخل قناة الأذن الداخلية لمنع دفع شمع الأذن أو إلحاق الضرر بـ طبلة الأذن.</li>
+  <li>المنتج مخصص للاستخدام الظاهري والخارجي فقط على الجلد السليم أو الجروح السطحية.</li>
+  <li>يُحفظ بعيداً عن متناول الأطفال الصغار دون إشراف لمنع مخاطر العبث أو الإدخال الخاطئ في الأنف أو العين.</li>
+  <li>يُخزن المنتج في مكان جاف ونظيف بعيداً عن مصادر الرطوبة المباشرة لضمان بقائه صحياً ونظيفاً.</li>
+  <li>المنتج مخصص للاستخدام لمرة واحدة فقط ويجب التخلص منه فوراً بعد الاستعمال لمنع التلوث البكتيري.</li>
+</ul>
+
+<h2>لمن هذا المنتج</h2>
+<ul>
+  <li>العائلات والأفراد الراغبون في اقتناء منتجات عناية شخصية صحية ونظيفة متعددة الاستخدامات.</li>
+  <li>عشاق التجميل والمكياج الذين يحتاجون لأداة دقيقة للغاية لتصحيح خطوط المكياج ورتوش العيون والأظافر.</li>
+  <li>الأمهات اللاتي يبحثن عن أدوات ناعمة وآمنة للعناية الخارجية بظاهر أذن وثنايا جلد الأطفال والرضع.</li>
+  <li>الأشخاص المهتمون بحماية البيئة واستبدال المنتجات البلاستيكية بأخرى خشبية وطبيعية 100% قابلة للتحلل.</li>
+</ul>`,
+    "specifications": `<table class="specifications-table">
+<tbody>
+  <tr><th>العلامة التجارية</th><td>إكليل العناية (Ekleel Care)</td></tr>
+  <tr><th>الفئة</th><td>العناية الشخصية / المستلزمات القطنية</td></tr>
+  <tr><th>نوع المنتج</th><td>أعواد قطنية خشبية متعددة الاستخدامات</td></tr>
+  <tr><th>الحجم/الوزن</th><td>100 عود</td></tr>
+  <tr><th>نوع البشرة/الشعر</th><td>جميع أنواع البشرة (بما فيها البشرة الحساسة وبشرة الأطفال)</td></tr>
+  <tr><th>المظهر النهائي</th><td>غير مطبق (طبيعي)</td></tr>
+  <tr><th>الملمس</th><td>قطن ناعم مع مقبض خشبي أملس ومتين</td></tr>
+  <tr><th>العطر</th><td>خالي من العطور والروائح الاصطناعية</td></tr>
+  <tr><th>المكونات النشطة</th><td>قطن طبيعي نقي 100%، خشب طبيعي صديق للبيئة</td></tr>
+  <tr><th>بلد المنشأ</th><td>الصين (China)</td></tr>
+  <tr><th>الشركة المصنعة</th><td>إكليل أبها للعناية الصحية (Ekleel Abha Healthcare)</td></tr>
+  <tr><th>الفئة العمرية</th><td>جميع الأعمار (تحت إشراف الكبار للأطفال)</td></tr>
+</tbody>
+</table>`,
+    "knowledge_base": `<h2>الدليل المعرفي والطبي لأعواد القطن الخشبية الطبيعية</h2>
+
+<h3>ما هي المشكلة التي يحلها هذا المنتج؟</h3>
+<p>تحل أعواد القطن الخشبية الطبيعية مشكلة التلوث البلاستيكي الناجم عن استخدام مليارات الأعواد البلاستيكية ذات الاستخدام الواحد والتي تتراكم في البيئة وتتحلل إلى ميكروبلاستيك ضار. كما توفر حلاً آمنًا ونظيفًا لمشكلة تلوث الجروح السطحية والتعديل الدقيق للمكياج؛ حيث إن استخدام الأصابع لتطبيق المستحضرات أو مسح المكياج تؤدي إلى نقل البكتيريا وتلطيخ البشرة، بينما تضمن الأعواد القطنية الخشبية وصول المستحضر بدقة متناهية وبطريقة معقمة ونظيفة.</p>
+
+<h3>لماذا تحدث هذه المشكلة؟</h3>
+<p>تنتج مشاكل التلوث وتلطيخ المكياج وانتقال الجراثيم عن الاعتماد على الوسائل التقليدية غير المتخصصة أو المواد البلاستيكية الرخيصة التي تفتقر إلى الصلابة والتحلل الحيوي. وتتسبب الأعواد البلاستيكية اللينة في الانثناء غير المباشر أثناء الاستخدام، مما يقلل الدقة في التوزيع ويضغط بشكل غير متوازن على الجلد، فضلاً عن الآثار البيئية الكارثية للبلاستيك على الحياة البحرية والتربة.</p>
+
+<h3>نصائح وقائية</h3>
+<ul>
+  <li><strong>التنظيف الظاهري الآمن:</strong> اقتصري دائماً على مسح الجزء الخارجي من صوان الأذن دون الدخول نهائياً في القناة السمعية.</li>
+  <li><strong>الحفظ الجاف المغلق:</strong> احتفظي بالعبوة مغلقة في بيئة جافة لمنع امتصاص ألياف القطن للرطوبة الجوية أو البكتيريا المترسبة.</li>
+  <li><strong>الاستخدام الفردي الفوري:</strong> استعملي كل عود لمرة واحدة فقط للتطبيق أو المسح ثم تخلصي منه مباشرة لتجنب التلوث المتقاطع.</li>
+  <li><strong>الابتعاد عن ضغط الجلد:</strong> استخدمي خفة اليد عند مسح الجروح أو حول العين لتجنب إحداث أي احتكاك قاسي.</li>
+</ul>
+
+<h3>خرافات شائعة</h3>
+<ul>
+  <li><strong>خرافة:</strong> الأعواد القطنية مخصصة لإزالة الشمع من داخل قناة الأذن.<br><strong>الحقيقة:</strong> يؤكد الأطباء وأخصائيو الأذن والأنف والحنجرة أن الأذن تنظف نفسها طبيعياً، وأن إدخال العود داخل القناة يدفع الشمع للداخل ويتسبب في انسدادها أو تلف طبلة الأذن.</li>
+  <li><strong>خرافة:</strong> الأعواد الخشبية قد تترك شظايا جافة تؤذي البشرة أثناء الاستعمال.<br><strong>الحقيقة:</strong> تخضع المقابض الخشبية لصقل ميكانيكي عالي الجودة يضمن نعومة فائقة لسطح الخشب وخلوه التام من أي شظايا أو زوائد.</li>
+  <li><strong>خرافة:</strong> الأعواد القطنية البلاستيكية أفضل وأكثر تعقيماً من الأعواد الخشبية.<br><strong>الحقيقة:</strong> الأعواد الخشبية والقطنية الطبيعية تمتاز بأنها خالية من مشتقات البترول وتتمتع بصلابة وامتصاص أعلى، فضلاً عن ملاءمتها التامة للبيئة وصحة الجلد.</li>
+</ul>
+
+<h3>التفسير العلمي</h3>
+<p>تعتمد الآلية الفيزيائية لأعواد القطن الخشبية على الخصائص الطبيعية لألياف السليلوز المكونة للقطن والخشب. تتميز ألياف القطن الطبيعي بوجود مسامات مجهرية تتيح تخلل السوائل وتطبيق الخاصية الشعرية (Capillary Action)، مما يمنح رأس العود قدرة فائقة على امتصاص قطرات الماء والمحاليل والزيوت بسرعة عالية والاحتباس بها داخل الرأس القطني دون تسريب. في المقابل، يمتلك الخشب الطبيعي الخيطي متانة عالية في تحمل قوى الشد والضغط العمودي، مما يوفر رافعة مستقيمة صلبة تمكن المستعمل من توجيه رأس العود بدقة متناهية على النقطة المستهدفة دون انثناء أو اهتزاز.</p>`,
+    "faqs": ar_faqs_html.trim(),
+    "tags": ["cotton_swabs", "أعواد_قطن", "قطن_خشبي", "إكليل_أبها", "عناية_شخصية", "منتجات_صديقة_للبيئة"]
+  },
+  "en": {
+    "title": "100-Count Natural Cotton & Wood Swabs",
+    "meta_title": "100-Count Natural Cotton & Wood Swabs | Ekleel Abha",
+    "meta_description": "Buy 100-Count Natural Cotton & Wood Swabs for multi-purpose hygiene, makeup touch-ups, and skin care. Biodegradable and eco-friendly.",
+    "description": `<h2>Product Overview</h2>
+<p><strong>100-Count Natural Cotton & Wood Swabs</strong> represent the ultimate hygienic and eco-conscious choice for personal care, beauty precision, and household utility. Expertly crafted with tips made from 100% pure, unbleached natural cotton, these swabs offer an exceptionally soft, absorbent touch that is gentle on even the most sensitive skin. Free from synthetic chemicals, fluorescent brighteners, and harsh bleaches, they deliver safe performance without irritation or lint shedding.</p>
+<p>Equipped with durable, smoothly polished natural wood handles, these swabs provide superior structural firmness and control compared to flexible plastic sticks. Their eco-friendly, 100% biodegradable construction ensures that you can care for your skin and home while reducing single-use plastic waste. Whether used for precise makeup adjustments, gentle outer ear cleaning, applying topical antiseptics to minor cuts, or detailed electronic cleaning, this 100-count pack is a versatile staple for every home.</p>
+
+<h2>Key Benefits</h2>
+<ul>
+  <li><strong>100% Pure Natural Cotton:</strong> Soft, non-irritating cotton tips offer maximum absorbency and gentle care for delicate skin.</li>
+  <li><strong>Sturdy Natural Wood Sticks:</strong> High-density polished wooden handles provide optimal rigidity and precision control without bending.</li>
+  <li><strong>Eco-Friendly & Biodegradable:</strong> Completely plastic-free and fully compostable, supporting sustainable lifestyle practices.</li>
+  <li><strong>Multi-Purpose Versatility:</strong> Perfect for makeup correction, skincare routines, wound care application, and outer ear hygiene.</li>
+  <li><strong>Tightly Wound & Shed-Resistant:</strong> High-density winding prevents cotton fibers from fraying or leaving lint behind on skin.</li>
+  <li><strong>Economical 100-Count Pack:</strong> Generous package size provides long-lasting value for daily family hygiene and beauty needs.</li>
+  <li><strong>Fragrance & Chemical-Free:</strong> Formulated without artificial scents, dyes, or harsh preservatives, ensuring safe use for all ages.</li>
+</ul>
+
+<h2>How to Use / Instructions for Use</h2>
+<ul>
+  <li><strong>For External Personal Hygiene:</strong> Dampen the cotton head with water or solution and gently sweep along the outer surfaces of the ear or skin folds.</li>
+  <li><strong>For Cosmetic Correction:</strong> Use a dry or micellar water-dampened cotton tip to erase mascara smudges, clean eyeliner edges, or refine lip contours.</li>
+  <li><strong>For Medical Ointments:</strong> Apply a small amount of topical ointment or antiseptic directly to the cotton head and dab gently onto the targeted skin area.</li>
+  <li><strong>For Precision Detail Cleaning:</strong> Guide the swab into small crevices of keyboards, phone ports, or crafts to gently trap dust and debris.</li>
+  <li><strong>Responsible Disposal:</strong> After a single use, dispose of the swab in a trash receptacle or compost bin. Do not flush down the toilet.</li>
+</ul>
+
+<h2>Ingredients Overview</h2>
+<ul>
+  <li><strong>100% Pure Natural Cotton:</strong> Pure, unbleached cotton fibers boasting exceptional absorbency for water, oils, and liquid lotions without harsh chemical treatments.</li>
+  <li><strong>Sustainable Birch Wood Handle:</strong> Smoothly polished natural wood providing rigid structural integrity and comfortable tactile grip without splinters.</li>
+  <li><strong>Non-Toxic Water-Based Adhesive:</strong> A safe, food-grade bonding agent used to securely attach the cotton head to the wooden stick without unraveling.</li>
+</ul>
+
+<h2>Warnings & Precautions</h2>
+<ul>
+  <li>Never insert cotton swabs into the inner ear canal to prevent pushing earwax inward or causing eardrum damage.</li>
+  <li>For external topical use only on intact skin, minor superficial cuts, or outer body surfaces.</li>
+  <li>Keep out of reach of young children without adult supervision to prevent accidental ingestion or insertion.</li>
+  <li>Store in a clean, dry environment protected from moisture to maintain optimal hygiene and freshness.</li>
+  <li>Single-use only; discard immediately after use to prevent cross-contamination and bacterial growth.</li>
+</ul>
+
+<h2>Who Is This For?</h2>
+<ul>
+  <li>Families and individuals looking for high-quality, multi-purpose hygiene products for daily household care.</li>
+  <li>Makeup enthusiasts and beauty professionals requiring pinpoint precision for cosmetic application and error correction.</li>
+  <li>Parents seeking soft, reliable swabs for gentle outer hygiene care for babies and young children.</li>
+  <li>Eco-conscious consumers striving to eliminate single-use plastics in favor of 100% biodegradable wooden alternatives.</li>
+</ul>`,
+    "specifications": `<table class="specifications-table">
+<tbody>
+  <tr><th>Brand</th><td>Ekleel Care</td></tr>
+  <tr><th>Category</th><td>Personal Care / Cotton Supplies</td></tr>
+  <tr><th>Product Type</th><td>Multi-Purpose Natural Cotton & Wood Swabs</td></tr>
+  <tr><th>Volume/Weight</th><td>100 Count</td></tr>
+  <tr><th>Skin/Hair Type</th><td>All Skin Types (Including Sensitive & Baby Skin)</td></tr>
+  <tr><th>Finish</th><td>Not Applicable (Natural)</td></tr>
+  <tr><th>Texture</th><td>Soft Cotton with Smooth Rigid Wooden Handle</td></tr>
+  <tr><th>Fragrance</th><td>Fragrance-Free</td></tr>
+  <tr><th>Active Ingredients</th><td>100% Pure Natural Cotton, Eco-Friendly Natural Wood</td></tr>
+  <tr><th>Country of Origin</th><td>China</td></tr>
+  <tr><th>Manufacturer</th><td>Ekleel Abha Healthcare</td></tr>
+  <tr><th>Age Group</th><td>All Ages (With adult supervision for children)</td></tr>
+</tbody>
+</table>`,
+    "knowledge_base": `<h2>Scientific & Educational Knowledge Base for Natural Cotton & Wood Swabs</h2>
+
+<h3>What problem does this solve?</h3>
+<p>Natural Cotton & Wood Swabs address the urgent environmental issue of single-use plastic waste generated by conventional plastic swabs, which accumulate in landfills and oceans. Therapeutically, they solve the challenge of unhygienic topical application; using fingers to apply medical ointments or touch up cosmetics transfers bacteria and oil. These swabs provide an isolated, sterile, and precise applicator that delivers liquids or creams exactly where needed without skin contamination.</p>
+
+<h3>Why does this condition happen?</h3>
+<p>Environmental degradation and skin contamination arise from relying on non-degradable plastic materials and unsterilized manual contact. Flexible plastic stems often bend under light pressure, causing uneven application and loss of control. Furthermore, plastic sticks take hundreds of years to decompose, fragmenting into hazardous microplastics that pollute aquatic ecosystems and food chains.</p>
+
+<h3>Prevention Tips</h3>
+<ul>
+  <li><strong>Safe Outer Hygiene:</strong> Restrict cotton swab cleaning exclusively to the outer ear (pinna) and external skin surfaces.</li>
+  <li><strong>Dry Sealed Storage:</strong> Store swabs in a closed container in a dry location to prevent moisture absorption and airborne dust settling.</li>
+  <li><strong>Single-Use Hygiene:</strong> Always use a fresh swab for every task to avoid cross-contaminating skin wounds or makeup products.</li>
+  <li><strong>Gentle Touch:</strong> Apply minimal pressure during use to prevent skin friction around sensitive areas like the eyes or wounds.</li>
+</ul>
+
+<h3>Common Myths</h3>
+<ul>
+  <li><strong>Myth:</strong> Cotton swabs are designed to deep-clean earwax out of the ear canal.<br><strong>Fact:</strong> Medical consensus from otolaryngologists states that the ear canal is self-cleaning. Inserting swabs inside pushes earwax deeper, potentially compacting wax or puncturing the eardrum.</li>
+  <li><strong>Myth:</strong> Wooden swabs splinter easily and can scratch skin.<br><strong>Fact:</strong> High-quality wooden swabs undergo fine mechanical polishing, ensuring a smooth, splinter-free finish that is safe and comfortable to handle.</li>
+  <li><strong>Myth:</strong> Plastic cotton swabs are more hygienic than wooden ones.<br><strong>Fact:</strong> Natural cotton and wood are naturally clean, non-toxic materials free from petroleum derivatives, offering equal or superior hygiene alongside full biodegradability.</li>
+</ul>
+
+<h3>Scientific Explanation of Mechanism</h3>
+<p>The performance of natural cotton and wood swabs relies on the physical properties of cellulose fibers. Pure cotton fibers feature a porous micro-structure that leverages capillary action to absorb liquids, oils, and aqueous solutions rapidly. Once absorbed, the liquid is held within the cotton matrix until gently pressed onto a surface. Concurrently, natural wood fibers possess high tensile and flexural strength, maintaining structural rigidity under vertical and lateral force. This allows the user to exert steady, controlled pressure for precision applications without stick deflection or wobble.</p>`,
+    "faqs": en_faqs_html.trim(),
+    "tags": ["cotton_swabs", "natural_wood", "ekleel_abha", "personal_care", "eco_friendly"]
+  },
+  "schema": {
+    "brand": "Ekleel Care",
+    "category": "Personal Care / Cotton Supplies",
+    "availability": "InStock"
+  },
+  "image_seo": {
+    "image_filename": "100-count-cotton-swabs-natural-wood.webp",
+    "alt": "100-Count Natural Cotton & Wood Swabs",
+    "title": "100-Count Natural Cotton & Wood Swabs"
+  }
+};
+
+const outputDir = path.join(__dirname, '..', 'temp', 'generated_products');
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+const outputPath = path.join(outputDir, '6599.json');
+fs.writeFileSync(outputPath, JSON.stringify(productJson, null, 2), 'utf8');
+
+console.log(`Successfully generated ${outputPath}`);
+console.log(`File size: ${fs.statSync(outputPath).size} bytes`);

@@ -1,0 +1,46 @@
+{
+  "product_id": "1486",
+  "sku": "EK-1486",
+  "brand": "Ekleel Beauty",
+  "ar": {
+    "title": "ليفة مغربية بالخزامى الناعمة",
+    "meta_title": "ليفة مغربية بالخزامى الناعمة | صيدلية إكليل أبها",
+    "meta_description": "ليفة مغربية بالخزامى الناعمة - أصلي مضمون في صيدلية إكليل أبها. شحن سريع لجميع مناطق المملكة.",
+    "description": "<h2>نظرة عامة</h2><p><strong>الليفة المغربية بالخزامى الناعمة</strong> ليفة حمام مغربية تقليدية بزيت الخزامى توفر تقشيراً لطيفاً إلى متوسطاً للجسم كاملاً. الألياف الطبيعية تزيل الخلايا الميتة وتحسن الدورة الدموية وتمنح البشرة النعومة مع رائحة الخزامى المهدئة.</p>",
+    "specifications": "<table class=\"specifications-table\"><tbody><tr><th>النوع</th><td>ليفة مغربية</td></tr><tr><th>الرائحة</th><td>زيت الخزامى العطري</td></tr><tr><th>المادة</th><td>ألياف ليفة طبيعية</td></tr><tr><th>الاستخدام</th><td>تقشير الجسم كاملاً</td></tr></tbody></table>",
+    "knowledge_base": "<h2>الدليل الطبي</h2><p>يُرجى الاطلاع على وصف المنتج للتفاصيل الكاملة.</p>",
+    "faqs": "<h3>هل الليفة المغربية أصلي في إكليل أبها؟</h3><p>نعم، أصلي 100%.</p><h3>هل التوصيل متاح لكل السعودية؟</h3><p>نعم.</p><h3>ما مدة الصلاحية؟</h3><p>مُدوّنة على العبوة.</p><h3>كيف يُحفظ؟</h3><p>في مكان بارد وجاف.</p><h3>هل رائحتها خزامى طبيعية؟</h3><p>نعم، بزيت الخزامى الطبيعي لتجربة حمام مهدئة.</p><h3>هل تحسن الدورة الدموية؟</h3><p>نعم، تدليك الليفة يحسن الدورة الدموية.</p><h3>كيف تُعتنى بها؟</h3><p>اشطفي وعلقيها للتجفيف بعد كل استخدام.</p>",
+    "tags": [
+      "moroccan_loofah",
+      "lavender",
+      "exfoliation",
+      "body_care",
+      "ekleel_abha"
+    ]
+  },
+  "en": {
+    "title": "Soft Lavender Moroccan Loofah",
+    "meta_title": "Soft Lavender Moroccan Loofah | Ekleel Abha Pharmacy",
+    "meta_description": "Buy Soft Lavender Moroccan Loofah at Ekleel Abha Pharmacy. 100% authentic, fast delivery.",
+    "description": "<h2>Product Overview</h2><p><strong>Soft Lavender Moroccan Loofah</strong> is a traditional Moroccan bath loofah infused with lavender essential oil that provides gentle-to-moderate exfoliation for the whole body. The natural loofah fibers effectively remove dead skin cells, improve circulation, and leave skin smooth and refreshed with the calming aroma of lavender.</p>",
+    "specifications": "<table class=\"specifications-table\"><tbody><tr><th>Type</th><td>Moroccan Loofah</td></tr><tr><th>Scent</th><td>Lavender Essential Oil</td></tr><tr><th>Material</th><td>Natural Loofah Fibers</td></tr><tr><th>Use</th><td>Full Body Exfoliation</td></tr></tbody></table>",
+    "knowledge_base": "<h2>Clinical Overview</h2><p>See product description for full clinical details.</p>",
+    "faqs": "<h3>Is Moroccan Loofah authentic at Ekleel Abha?</h3><p>Yes, 100% authentic.</p><h3>Delivery across KSA?</h3><p>Yes, fast nationwide.</p><h3>Shelf life?</h3><p>As printed on packaging.</p><h3>How to store?</h3><p>Cool dry place.</p><h3>Is it naturally scented with lavender?</h3><p>Yes, infused with lavender essential oil for a calming bath experience.</p><h3>Is it good for circulation?</h3><p>Yes, loofah massage improves blood circulation under the skin.</p><h3>How to care for it?</h3><p>Rinse thoroughly and hang to dry after each use.</p>",
+    "tags": [
+      "moroccan_loofah",
+      "lavender",
+      "exfoliation",
+      "body_care",
+      "ekleel_abha"
+    ]
+  },
+  "schema": {
+    "brand": "Ekleel Beauty",
+    "availability": "InStock"
+  },
+  "image_seo": {
+    "image_filename": "soft-lavender-moroccan-loofah.webp",
+    "alt": "Soft Lavender Moroccan Loofah",
+    "title": "Soft Lavender Moroccan Loofah"
+  }
+}

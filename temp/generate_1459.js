@@ -1,0 +1,368 @@
+const fs = require('fs');
+const path = require('path');
+
+const outputDir = path.join(__dirname, '../temp/generated_products');
+if (!fs.existsSync(outputDir)) {
+  fs.mkdirSync(outputDir, { recursive: true });
+}
+
+const productData = {
+  "product_id": "1459",
+  "sku": "EK-1459",
+  "category": "العناية الشخصية / العناية الحميمية",
+  "brand": "Femfresh",
+  "ar": {
+    "title": "غسول فيم فريش اليومي للمناطق الحميمية بخلاصة الصبار - 250 مل",
+    "meta_title": "غسول فيم فريش اليومي للمناطق الحميمية بالصبار 250مل | إكليل أبها",
+    "meta_description": "تسوقي غسول فيم فريش اليومي للمناطق الحميمية بخلاصة الصبار 250 مل. خالي من الصابون، متوازن الحموضة pH 4.5، مهدئ ومطهر لطيف. أصلي 100% من صيدلية إكليل أبها.",
+    "description": `<h2>نظرة عامة على المنتج</h2>
+<p>يُعتبر <strong>غسول فيم فريش اليومي للمناطق الحميمية بخلاصة الصبار (Femfresh Daily Intimate Wash with Aloe Vera - 250 ml)</strong> الخيار الطبي الأول والرائد عالمياً للعناية الأنثوية اليومية اللطيفة. تم تطوير هذا الغسول خصيصاً بواسطة أطباء النساء والجلدية ليلبي الاحتياجات التناسلية والفسيولوجية الفريدة للمرأة، حيث يقدم تنظيفاً فعالاً وناعماً للمنطقة الحساسة دون الإخلال بالتوازن البكتيري الطبيعي أو تسبيب أي جفاف أو تهيج.</p>
+
+<p>تتميز هذه التركيبة الفريدة بأنها <strong>خالية تماماً من الصابون القاسي</strong> ومدعمة بالخلاصات النباتية المهدئة مثل خلاصة الصبار (Aloe Vera) وزهرة الكالينديولا (Calendula)، بالإضافة إلى حمض اللاكتيك الطبيعي. يضمن لكِ غسول فيم فريش شعوراً بالانتعاش والراحة والنظافة العميقة يدوم حتى 24 ساعة، مما يجعله جزءاً أساسياً لا غنى عنه في روتين الاستحمام اليومي لكل امرأة تهتم بصحتها الحميمية وثقتها بنفسها.</p>
+
+<h2>الفوائد الرئيسية</h2>
+<ul>
+  <li><strong>توازن الحموضة المثالي (pH 4.5):</strong> يحافظ على بيئة حمضية طبيعية تحمي المنطقة الحساسة من الفطريات والبكتيريا الضارة.</li>
+  <li><strong>تركيبة خالية من الصابون:</strong> ينظف بصلابة ولطف شديد دون أن يجرد الجلد من زيوته الطبيعية المرطبة أو يسبب الجفاف.</li>
+  <li><strong>ترطيب وتهدئة ملموسة:</strong> يحتوي على خلاصة الصبار الطبيعية التي تهدئ البشرة المتهيجة وتوفر ترطيباً يدوم طوال اليوم.</li>
+  <li><strong>مقاومة الروائح الكريهة:</strong> يمنع ويقضي على الروائح غير المستحبة ويمنحكِ إحساساً رائعاً بالنظافة والانتعاش طوال اليوم.</li>
+  <li><strong>مختبر طبياً:</strong> خضع لاختبارات صارمة تحت إشراف أطباء الجلد وأطباء النساء لضمان أمانه التام للاستخدام اليومي المباشر.</li>
+  <li><strong>خلاصة الكالينديولا المهدئة:</strong> تساعد على تقليل الالتهابات الخفيفة وتلطيف الجلد بعد التغسيل أو إزالة الشعر.</li>
+</ul>
+
+<h2>طريقة الاستخدام</h2>
+<ul>
+  <li><strong>الخطوة الأولى:</strong> أثناء الاستحمام بالماء الدافيء، ضعي كمية صغيرة بحجم حبة البندق من غسول فيم فريش على كف اليد المبلل أو على إسفنجة ناعمة جداً.</li>
+  <li><strong>الخطوة الثانية:</strong> دلكي الغسول برفق ولطف على المنطقة الحساسة الخارجية (منطقة الفرج الخارجية) حتى تتكون رغوة ناعمة ولطيفة.</li>
+  <li><strong>الخطوة الثالثة:</strong> اشطفي المنطقة جيداً بالماء الدافيء لضمان إزالة أي بقايا للغسول تماماً.</li>
+  <li><strong>الخطوة الرابعة:</strong> جففي المنطقة الحميمية بلطف شديد باستخدام منشفة قطنية نظيفة ونقية عن طريق الطبطبة دون الفرك القاسي.</li>
+  <li><strong>ملاحظة مهمة:</strong> يُستخدم هذا الغسول للاستعمال الخارجي فقط، ويُنصح باستخدامه مرة إلى مرتين يومياً حسب الحاجة.</li>
+</ul>
+
+<h2>نظرة عامة على المكونات</h2>
+<p>تعتمد تركيبة غسول فيم فريش على توليفة متوازنة علمياً تجمع بين الطبيعة والعلوم الطبية الحديثة لحماية الأنسجة الرقيقة للمنطقة الحميمية:</p>
+<ul>
+  <li><strong>خلاصة الصبار (Aloe Barbadensis Leaf Extract):</strong> غنية بالتركيبات السكرية والمغذيات التي تمنح البشرة ترطيباً عميقاً وتهدئ التهيج والاحمرار الناتج عن الاحتكاك.</li>
+  <li><strong>خلاصة الكالينديولا (Calendula Officinalis Flower Extract):</strong> معروفة بخصائصها المضادة للإنتفاخ والالتهابات، وتساعد على ترميم وتلطيف الأنسجة الحساسة.</li>
+  <li><strong>حمض اللاكتيك (Lactic Acid):</strong> المكون الأساسي المسؤول عن ضبط مستوى الحموضة (pH) عند 4.5، مما يعزز نمو بكتيريا العصيات اللبنية النافعة (Lactobacilli).</li>
+  <li><strong>مركب ثلاثي إيثيل السيترات (Triethyl Citrate):</strong> يعمل كمنظم آمن للروائح الكريهة ويمنع تفكك العرق بواسطة البكتيريا دون سد المسام.</li>
+</ul>
+
+<h2>تحذيرات واحتياطات</h2>
+<ul>
+  <li>المنتج مخصص <strong>للأستعمال الخارجي فقط</strong> على الأغشية والجلد الخارجي؛ يُمنع استخدامه كدش مهبلي داخلي.</li>
+  <li>في حال ملامسة الغسول للعينين بالخطأ، اشطفيهما فوراً بماء وفير ونظيف.</li>
+  <li>يُحفظ بعيداً عن متناول الأطفال وفي مكان بارد وجاف بعيداً عن أشعة الشمس المباشرة (أقل من 30 درجة مئوية).</li>
+  <li>إذا ظهرت أي أعراض تهيج، أحمرار استثنائي، أو حكة غير معتادة، يُنصح بإيقاف الاستخدام واستشارة الطبيب المختص.</li>
+</ul>
+
+<h2>لمن هذا المنتج</h2>
+<p>تم تصميم غسول فيم فريش بالصبار خصيصاً ليكون الملائم والأمثل لكل امرأة تسعى للحفاظ على صحتها الحميمية ورونقها:</p>
+<ul>
+  <li><strong>النساء والمراهقات:</strong> للاستخدام اليومي المنتظم أثناء الاستحمام للحفاظ على النظافة والتوازن الطبيعي.</li>
+  <li><strong>أثناء الدورة الشهرية:</strong> للتخلص من التراكمات والروائح المصاحبة للحيض وضمان الانتعاش المستمر.</li>
+  <li><strong>السيدات ذوات البشرة الحساسة:</strong> اللواتي يعانين من التهيج والجفاف عند استخدام الصابون العادي أو غسولات الجسم العطرية.</li>
+  <li><strong>بعد ممارسة الرياضة:</strong> للتخلص من أثر العرق والرطوبة ومنع تكون البكتيريا المسببة للروائح.</li>
+</ul>`,
+    "specifications": `<table class="specifications-table">
+<tbody>
+  <tr><th>العلامة التجارية</th><td>فيم فريش (Femfresh)</td></tr>
+  <tr><th>الفئة</th><td>العناية الشخصية / العناية الحميمية</td></tr>
+  <tr><th>نوع المنتج</th><td>غسول حميمي يومي متوازن الحموضة</td></tr>
+  <tr><th>الحجم/الوزن</th><td>250 مل</td></tr>
+  <tr><th>نوع البشرة/الشعر</th><td>جميع أنواع البشرة (بما فيها البشرة الحساسة)</td></tr>
+  <tr><th>المظهر النهائي</th><td>نظافة وانتعاش حميمي يدوم طوال اليوم</td></tr>
+  <tr><th>الملمس</th><td>جل سائل خفيف</td></tr>
+  <tr><th>العطر</th><td>عطر لطيف وخفيف مطور طبياً</td></tr>
+  <tr><th>المكونات النشطة</th><td>خلاصة الصبار (Aloe Vera)، خلاصة الكالينديولا (Calendula)، حمض اللاكتيك (Lactic Acid)</td></tr>
+  <tr><th>بلد المنشأ</th><td>المملكة المتحدة (UK)</td></tr>
+  <tr><th>الشركة المصنعة</th><td>Church & Dwight Co., Inc.</td></tr>
+  <tr><th>الفئة العمرية</th><td>البالغات والمراهقات (النساء)</td></tr>
+</tbody>
+</table>`,
+    "knowledge_base": `<h2>الدليل المعرفي للتوازن الحميمي والصحة الأنثوية</h2>
+
+<h3>ما هي المشكلة التي يحلها هذا المنتج؟</h3>
+<p>يعالج غسول فيم فريش اليومي مشكلة اضطراب التوازن الطبيعي للمنطقة الحميمية الأنثوية، وما ينتج عنه من جفاف، حكة، تهيج، وظهور روائح غير مستحبة. كما يحل مشكلة التأثير الضار لاستخدام الصابون وغسولات الجسم العادية التي تحتوي على مواد قلوية تجرد المنطقة من حمايتها الطبيعية وتجعلها عرضة لنمو الفطريات والميكروبات الضارة.</p>
+
+<h3>لماذا تحدث هذه المشكلة؟</h3>
+<p>تتمتع المنطقة الحميمية لدى المرأة ببيئة حمضية دقيقة وخاصة يتراوح الرقم الهيدروجيني (pH) فيها بين 3.8 و 4.5. هذه الحموضة الطبيعية هي سلاح الدفاع الأساسي الذي تفرزه بكتيريا العصيات اللبنية النافعة (Lactobacilli) لثبيط نمو البكتيريا الضارة والفطريات مثل الكانديدا. عند استخدام الصابون التجاري العادي (الذي يبلغ الرقم الهيدروجيني له من 7 إلى 9)، أو عند التعرض للتغيرات الهرمونية، التوتر، ارتداد الملابس الضيقة غير القطنية، أو تعرق الرياضة، تتغير هذه الحموضة وتصبح قلوية، مما يقتل البكتيريا النافعة ويفسح المجال للبكتيريا الضارة والفطريات للتكاثر وحدوث التهابات وروائح كريهة.</p>
+
+<h3>نصائح وقائية</h3>
+<ul>
+  <li><strong>الالتزام بغسول متوازن الحموضة:</strong> استبدال الصابون العادي دائماً بغسول مخصص ومحدد الحموضة بـ pH 4.5 مثل فيم فريش.</li>
+  <li><strong>ارتداء الملابس القطنية:</strong> الحرص على اختيار الملابس الداخلية القطنية 100% والابتعاد عن الألياف الصناعية التي تحبس الحرارة والرطوبة.</li>
+  <li><strong>التجفيف الصحيح:</strong> التجفيف دائماً من الأمام إلى الخلف لتجنب نقل البكتيريا من المنطقة الخلفية إلى المنطقة الحميمية.</li>
+  <li><strong>تجنب الدش المهبلي الداخلي:</strong> الابتعاد تماماً عن غسل المهبل من الداخل لأن المهبل ينظف نفسه بنفسه، والاكتفاء بالتنظيف الخارجي فقط.</li>
+</ul>
+
+<h3>خرافات شائعة</h3>
+<ul>
+  <li><strong>خرافة:</strong> "الصابون العادي المعطر هو أفضل طريقة لتنظيف المنطقة الحميمية وإعطائها رائحة جميلة."<br><strong>الحقيقة:</strong> الصابون العادي يحتوي على مواد قلوية قاسية وعطور صناعية تدمر الحموضة الطبيعية للمنطقة وتؤدي إلى الجفاف والتهيج المباشر وزيادة الروائح على المدى الطويل.</li>
+  <li><strong>خرافة:</strong> "يجب غسل المهبل من الداخل بالماء والغسول لضمان النظافة التامة."<br><strong>الحقيقة:</strong> المهبل عضو ذاتي التنظيف داخلياً، وغسله من الداخل يزيل البكتيريا النافعة ويسبب التهابات مهبلية خطيرة. التنظيف يجب أن يكون خارجياً فقط.</li>
+  <li><strong>خرافة:</strong> "الغسول الحميمي يُستخدم فقط عند وجود التهابات أو روائح كريهة."<br><strong>الحقيقة:</strong> غسول فيم فريش هو غسول وقائي يومي مصمم للحفاظ على الصحة والتوازن ومنع حدوث التهابات أو روائح من الأساس.</li>
+</ul>
+
+<h3>التفسير العلمي</h3>
+<p>يعتمد المبدأ العلمي لعمل غسول فيم فريش على تنظيم الحموضة والحفاظ على الميكروبيوم الأنثوي (Feminine Microbiome). يتدخل حمض اللاكتيك (Lactic Acid) المدمج في التركيبة لضبط الرقم الهيدروجيني للمستحضر عند 4.5 بالضبط، وهو المستوى المثالي الذي تهيئ فيه البيئة لتكاثر بكتيريا العصيات اللبنية (Lactobacilli). هذه البكتيريا النافعة تنتج بيروكسيد الهيدروجين وحمض أكتيك طبيعي يمنع نمو الميكروبات الممرضة مثل <em>Candida albicans</em> و <em>Gardnerella vaginalis</em>. وفي الوقت نفسه، توفر مركبات البوليسكاريد الموجودة في خلاصة الصبار غلافاً مرطباً يمنع فقدان الماء عبر البشرة (TEWL) ويحافظ على مرونة ونعومة الأنسجة الخارجية.</p>`,
+    "faqs": `<h3>ما هو غسول فيم فريش اليومي بالصبار وما الذي يميزه؟</h3>
+<p>غسول فيم فريش بالصبار هو غسول مخصص للمناطق الحميمية خالي من الصابون، تم تطويره واختباره طبياً بواسطة أطباء الجلدية والنساء. يتميز بتركيبته المخصبة بخلاصة الصبار الطبيعي والكالينديولا وحمض اللاكتيك، والتي تعمل معاً للحفاظ على درجة الحموضة الطبيعية (pH 4.5) ومنح المنطقة نظافة وترطيباً وانتعاشاً يدوم 24 ساعة.</p>
+
+<h3>لماذا لا يجب استخدام صابون الاستحمام العادي للمناطق الحميمية؟</h3>
+<p>لأن الصابون العادي يحتوي على نسبة حموضة قلوية (تتراوح بين 7 و 9)، مما يخل بالحموضة الحمضية الطبيعية للمنطقة الحميمية (pH 4.5). هذا الخلل يقتل البكتيريا النافعة ويؤدي إلى الجفاف، الحكة، ظهور الروائح الكريهة، وزيادة عرضة المنطقة للالتهابات الفطرية والبكتيرية.</p>
+
+<h3>هل غسول فيم فريش بالصبار مناسب للاستخدام اليومي؟</h3>
+<p>نعم، تم تصميم فيم فريش خصيصاً ليكون آمناً ومثالياً للاستخدام اليومي أثناء الاستحمام. تركيبته الخالية من الصابون واللطيفة على البشرة تسمح باستخدامه يومياً دون التسبب في أي جفاف أو تهيج.</p>
+
+<h3>ما هي المكونات الفعالة الرئيسية في هذا الغسول؟</h3>
+<p>يحتوي الغسول على خلاصة الصبار الطبيعية المهدئة والمرطبة، خلاصة زهرة الكالينديولا المضادة للالتهاب والتخريش، وحمض اللاكتيك الذي يوازن حموضة البشرة، بالإضافة إلى مركب ثلاثي إيثيل السيترات الذي يمنع تكون الروائح الكريهة.</p>
+
+<h3>هل الغسول خالي من الصابون ومناسب للبشرة الحساسة؟</h3>
+<p>نعم، غسول فيم فريش خالي تماماً من الصابون القاسي ومختبر على البشرة الحساسة. تركيبته اللطيفة ومكوناته المهدئة تجعله خياراً ممتازاً للنساء اللواتي يعانين من حساسية الجلد أو التهيج السريع.</p>
+
+<h3>هل يمكن استخدام غسول فيم فريش أثناء فترة الدورة الشهرية؟</h3>
+<p>نعم بالتأكيد، يُوصى باستخدام فيم فريش أثناء الدورة الشهرية لتنظيف الإفرازات وبقايا دم الحيض بلطف، وللتخلص من أي روائح مصاحبة وللحفاظ على الشعور بالنظافة والانتعاش طوال اليوم.</p>
+
+<h3>هل غسول فيم فريش آمن للحوامل والمرضعات؟</h3>
+<p>نعم، يُعتبر غسول فيم فريش آمناً للاستخدام الخارجي أثناء فترة الحمل والرضاعة. تتغير حموضة المنطقة الحميمية خلال الحمل بسبب التغيرات الهرمونية، لذا يساعد هذا الغسول متوازن الحموضة في حماية المنطقة وتلطيفها. إذا كانت لديك ظروف صحية خاصة يُفضل استشارة الطبيب.</p>
+
+<h3>هل يُستخدم الغسول للتنظيف الداخلي (الدش المهبلي) أم الخارجي فقط؟</h3>
+<p>غسول فيم فريش مخصص للاستخدام الخارجي فقط (منطقة الفرج الخارجية). يمنع منعاً باتاً إدخاله داخل المهبل، حيث أن المهبل يمتلك آلية تنظيف ذاتية داخلية، والتنظيف الداخلي قد يسبب التهابات واضطراباً بكتيرياً شديداً.</p>
+
+<h3>كيف أستخدم غسول فيم فريش بطريقة صحيحة؟</h3>
+<p>ضعي كمية صغيرة من الغسول بحجم حبة البندق على يدك المبللة أو على إسفنجة ناعمة، دلكي المنطقة الحساسة الخارجية بلطف حتى تتكون رغوة ناعمة، ثم اشطفي بالماء الدافيء جيداً وجففي بطريقة الطبطبة باستخدام منشفة قطنية نظيفة.</p>
+
+<h3>هل يساعد غسول فيم فريش في التخلص من الروائح الحميمية الكريهة؟</h3>
+<p>نعم، يساعد الغسول بفعالية عالية في منع وقمع الروائح الكريهة من خلال التخلص من العرق والإفرازات والبكتيريا المسببة للرائحة، مع حماية البكتيريا النافعة وتوفير عطر خفيف وانتعاش يستمر حتى 24 ساعة.</p>
+
+<h3>هل يعالج غسول فيم فريش التهابات الفطريات (الكانديدا) أو التهاب المهبل البكتيري؟</h3>
+<p>غسول فيم فريش هو مستحضر عناية ووقاية يومي وليس علاجاً دوائياً للعدوى الفعالة. إذا كنت تعانين من إفرازات غير طبيعية، حكة شديدة، حرقة، أو روائح قوية جداً، يجب مراجعة الطبيبة المختصة للحصول على العلاج الطبي المناسب.</p>
+
+<h3>ما هو الرقم الهيدروجيني (pH) لغسول فيم فريش بالصبار؟</h3>
+<p>يتميز غسول فيم فريش برقم هيدروجيني متوازن ومخصص يبلغ 4.5، وهو الرقم الفسيولوجي الطبيعي للمنطقة الحميمية الأنثوية الصحية الذي يضمن حمايتها وتعزيز مناعتها الذاتية.</p>
+
+<h3>هل يناسب الغسول السيدات اللواتي يعانين من الجفاف الحميمي؟</h3>
+<p>نعم، بفضل احتوائه على خلاصة الصبار الطبيعية والجليسرين، يقدم الغسول ترطيباً غنياً يقلل من أعراض الجفاف والانزعاج ويترك البشرة ناعمة ومحميّة.</p>
+
+<h3>كم تدوم عبوة فيم فريش بحجم 250 مل؟</h3>
+<p>نظراً لأن الاستخدام اليومي يتطلب نقطة صغيرة جداً فقط في كل مرة، فإن عبوة 250 مل تدوم عادة ما بين شهرين إلى 3 أشهر من الاستخدام اليومي المنتظم.</p>
+
+<h3>هل يحتوي غسول فيم فريش على البارابين؟</h3>
+<p>غسول فيم فريش مصمم وفق أعلى المعايير الأوروبية لسلامة مستحضرات التجميل، وهو خالي من البارابين والمواد الكيميائية الضارة التي قد تسبب التهاب البشرة.</p>
+
+<h3>هل يمكن للمراهقات استخدام هذا الغسول؟</h3>
+<p>نعم، يمكن للمراهقات استخدام غسول فيم فريش بآمان كامل ابتداءً من مرحلة البلوغ، لمساعدتهن على بناء روتين عناية شخصية صحي ونظيف وللحفاظ على توازن المنطقة.</p>
+
+<h3>هل يمكن للرجال استخدام غسول فيم فريش؟</h3>
+<p>على الرغم من أن المنتج مصمم ومتوازن هيدروجينياً ليلائم فيزيولوجيا المرأة، إلا أن الرجال يمكنهم أيضاً استخدامه كغسول لطيف خالي من الصابون لتنظيف المناطق الحساسة دون تسبيب جفاف.</p>
+
+<h3>هل يمكن استخدام الغسول بعد إزالة الشعر (بالشمع أو الموس)؟</h3>
+<p>نعم، خلاصة الصبار والكالينديولا تعملان على تهدئة وتلطيف البشرة بعد إزالة الشعر في منطقة البكيني. يُفضل تجنب وضعه على الجروح المفتوحة أو الخدوش الطازجة لمنع الوخز البسيط.</p>
+
+<h3>هل يحتوي غسول فيم فريش على عطور قوية قد تسبب الحساسية؟</h3>
+<p>يحتوي فيم فريش على عطر خفيف جداً ومطور طبياً ليناسب الأغشية الحساسة، وتم اختباره جلدياً لضمان عدم تسببه في ردود فعل تحسسية.</p>
+
+<h3>ما هي الطريقة المثلى لتخزين غسول فيم فريش؟</h3>
+<p>يُفضل تخزين العبوة في درجة حرارة الغرفة (أقل من 30 درجة مئوية) بعيداً عن أشعة الشمس المباشرة، وإغلاق الغطاء جيداً بعد كل استخدام لمنع دخول ماء الاستحمام إلى العبوة.</p>
+
+<h3>ما هي مدة صلاحية الغسول بعد الفتح؟</h3>
+<p>تبلغ مدة صلاحية المنتج بعد الفتح (PAO) 12 شهراً. يُنصح باستخدامه خلال هذه الفترة للحصول على أعلى مستويات الفعالية والانتعاش.</p>
+
+<h3>هل يجوز استخدام الغسول مرتين في اليوم؟</h3>
+<p>نعم، يمكنك استخدامه بآمان مرتين يومياً (مثلاً أثناء دوش الصباح وبعد التمارين الرياضية)، فتركيبته اللطيفة الخالية من الصابون لا تسبب جفاف البشرة مع التكرار.</p>
+
+<h3>هل يسبب فيم فريش تقشيراً أو جفافاً للمنطقة الحساسة؟</h3>
+<p>لا، على العكس تماماً، خلاصة الصبار والمكونات والمرطبات الطبيعية تمنع الجفاف وتحافظ على مرونة ورطوبة الجلد والأغشية الخارجية.</p>
+
+<h3>أين يتم تصنيع غسول فيم فريش؟</h3>
+<p>يُصنع غسول فيم فريش في المملكة المتحدة (UK) بواسطة شركة Church & Dwight الشهيرة وفق أعلى معايير الجودة والتصنيع الدوائي والتجميلي الأوروبي.</p>
+
+<h3>هل يمكن استخدام الغسول أثناء تناول المضادات الحيوية؟</h3>
+<p>نعم، تؤثر المضادات الحيوية أحياناً على البكتيريا النافعة في الجسم، لذا فإن استخدام غسول متوازن الحموضة مثل فيم فريش يساعد في دعم حموضة المنطقة الخارجية والحفاظ على توازنها أثناء العلاج.</p>`,
+    "tags": ["فيم_فريش", "غسول_حميمي", "صبار", "عناية_بالمرأة", "إكليل_أبها"]
+  },
+  "en": {
+    "title": "Femfresh Daily Intimate Wash with Aloe Vera - 250 ml",
+    "meta_title": "Femfresh Daily Intimate Wash with Aloe Vera 250ml | Ekleel",
+    "meta_description": "Shop Femfresh Daily Intimate Wash with Aloe Vera (250ml). Soap-free, pH-balanced (4.5), soothing & refreshing intimate cleanser. 100% original at Ekleel Abha.",
+    "description": `<h2>Product Overview</h2>
+<p>The <strong>Femfresh Daily Intimate Wash with Aloe Vera (250 ml)</strong> is globally recognized as the gold standard in gentle daily feminine hygiene. Specially formulated by dermatologists and gynaecologists, this premium intimate cleanser is tailored to respect the unique physiological and anatomical needs of a woman's body. It provides effective, soothing cleansing without disrupting the natural microflora balance or causing dryness or irritation.</p>
+
+<p>Featuring a 100% <strong>soap-free formula</strong> enriched with natural soothing botanical extracts of Aloe Vera and Calendula, alongside natural Lactic Acid, Femfresh delivers up to 24 hours of lasting freshness and confidence. It forms an essential component of every woman's daily bathing ritual, ensuring sensitive intimate skin remains hydrated, protected, and comfortably balanced every single day.</p>
+
+<h2>Key Benefits</h2>
+<ul>
+  <li><strong>Optimum pH-Balanced Formula (pH 4.5):</strong> Matches the natural acidic environment of the intimate zone to protect against harmful pathogens and yeast growth.</li>
+  <li><strong>100% Soap-Free Cleansing:</strong> Gently washes away impurities and discharge without stripping away natural protective lipids or causing dryness.</li>
+  <li><strong>Soothing & Hydrating:</strong> Infused with pure Aloe Vera extract to calm irritated skin and lock in essential moisture all day long.</li>
+  <li><strong>24-Hour Odor Protection:</strong> Effectively neutralizes odor-causing bacteria, keeping you feeling clean, confident, and refreshed for 24 full hours.</li>
+  <li><strong>Clinically & Gynaecologically Tested:</strong> Rigorously evaluated under expert medical supervision for safe, hypoallergenic daily intimate use.</li>
+  <li><strong>Enriched with Calendula:</strong> Provides natural anti-inflammatory and skin-softening benefits to soothe skin after cleansing or hair removal.</li>
+</ul>
+
+<h2>How to Use / Instructions for Use</h2>
+<ul>
+  <li><strong>Step 1:</strong> During your daily shower or bath, pour a small hazelnut-sized amount of Femfresh wash onto your wet palm or a soft washcloth.</li>
+  <li><strong>Step 2:</strong> Gently massage the wash onto the external intimate area (the vulva) to create a light, silky lather.</li>
+  <li><strong>Step 3:</strong> Rinse the area thoroughly with warm water to remove all traces of the wash completely.</li>
+  <li><strong>Step 4:</strong> Gently pat the intimate area dry with a soft, clean cotton towel (avoid harsh rubbing).</li>
+  <li><strong>Important Note:</strong> For external intimate use only. Recommended for daily use once or twice a day as needed.</li>
+</ul>
+
+<h2>Ingredients Overview</h2>
+<p>The Femfresh Daily formula combines natural botanicals with dermatological science to provide maximum protection and gentleness for delicate intimate skin:</p>
+<ul>
+  <li><strong>Aloe Barbadensis (Aloe Vera) Leaf Extract:</strong> Rich in soothing polysaccharides, vitamins, and minerals that deeply hydrate intimate skin and soothe friction-induced redness.</li>
+  <li><strong>Calendula Officinalis Flower Extract:</strong> Famous for its skin-repairing and anti-inflammatory properties, helping to calm delicate skin tissues.</li>
+  <li><strong>Lactic Acid:</strong> The key physiological component that maintains an optimal low pH (4.5), encouraging the proliferation of beneficial Lactobacilli microflora.</li>
+  <li><strong>Triethyl Citrate:</strong> A safe, non-comedogenic odor-control agent that prevents sweat breakdown by bacteria without blocking skin pores.</li>
+</ul>
+
+<h2>Warnings & Precautions</h2>
+<ul>
+  <li>Intended for <strong>EXTERNAL USE ONLY</strong> on the vulva; do not use as an internal vaginal douche.</li>
+  <li>In case of accidental contact with the eyes, rinse immediately with plenty of clean water.</li>
+  <li>Keep out of reach of children. Store in a cool, dry place below 30°C away from direct sunlight.</li>
+  <li>If unusual irritation, redness, or persistent discomfort occurs, discontinue use and consult a physician.</li>
+</ul>
+
+<h2>Who Is This For?</h2>
+<p>Femfresh Daily Intimate Wash with Aloe Vera is thoughtfully formulated for women of all ages seeking superior intimate comfort and hygiene:</p>
+<ul>
+  <li><strong>Adult Women & Teenagers:</strong> Ideal for daily shower routines to maintain healthy intimate flora and everyday cleanliness.</li>
+  <li><strong>During Menstruation:</strong> Perfect for gently washing away menstrual residue and neutralizing temporary period odors.</li>
+  <li><strong>Women with Sensitive Skin:</strong> Who suffer from irritation or dryness caused by regular body soaps and heavily fragranced shower gels.</li>
+  <li><strong>Active Women & Athletes:</strong> Great for post-workout cleansing to remove sweat and prevent moisture buildup and bacterial proliferation.</li>
+</ul>`,
+    "specifications": `<table class="specifications-table">
+<tbody>
+  <tr><th>Brand</th><td>Femfresh</td></tr>
+  <tr><th>Category</th><td>Personal Care / Intimate Hygiene</td></tr>
+  <tr><th>Product Type</th><td>Daily pH-Balanced Intimate Wash</td></tr>
+  <tr><th>Volume/Weight</th><td>250 ml</td></tr>
+  <tr><th>Skin/Hair Type</th><td>All Skin Types (Including Sensitive Skin)</td></tr>
+  <tr><th>Finish</th><td>Long-lasting intimate freshness and cleanliness</td></tr>
+  <tr><th>Texture</th><td>Lightweight gel liquid</td></tr>
+  <tr><th>Fragrance</th><td>Mild, delicate fragrance</td></tr>
+  <tr><th>Active Ingredients</th><td>Aloe Vera Extract, Calendula Extract, Lactic Acid</td></tr>
+  <tr><th>Country of Origin</th><td>United Kingdom</td></tr>
+  <tr><th>Manufacturer</th><td>Church & Dwight Co., Inc.</td></tr>
+  <tr><th>Age Group</th><td>Adults & Teens (Women)</td></tr>
+</tbody>
+</table>`,
+    "knowledge_base": `<h2>Clinical Insights on Feminine Intimate Health & Balance</h2>
+
+<h3>What problem does this solve?</h3>
+<p>Femfresh Daily Intimate Wash solves the widespread issue of intimate skin imbalance, dryness, irritation, and unpleasant odors caused by harsh conventional soaps. It restores and maintains the delicate physiological ecosystem of the female external intimate region, ensuring long-lasting comfort and protection against opportunist microbial overgrowth.</p>
+
+<h3>Why does this condition happen?</h3>
+<p>The female intimate zone possesses a unique acidic microenvironment with a natural pH level between 3.8 and 4.5. This acidity is created by beneficial <em>Lactobacilli</em> bacteria, which produce lactic acid to keep harmful bacteria and yeasts (such as <em>Candida albicans</em>) at bay. Conventional body washes and soaps are alkaline (pH 7.0–9.0). When used in the intimate area, alkaline products strip away protective natural oils, kill beneficial bacteria, and elevate the pH. This shift creates a hostile environment leading to skin dryness, itching, irritation, bacterial vaginosis (BV), and recurrent fungal infections.</p>
+
+<h3>Prevention tips</h3>
+<ul>
+  <li><strong>Use a Specialized pH 4.5 Cleanser:</strong> Replace alkaline body soaps with a dedicated pH-balanced wash like Femfresh Daily.</li>
+  <li><strong>Wear Breathable Cotton Underwear:</strong> Choose 100% natural cotton underwear and avoid tight synthetic fabrics that trap moisture and heat.</li>
+  <li><strong>Wipe Front-to-Back:</strong> Always cleanse and wipe from front to back to prevent transferring intestinal bacteria to the intimate region.</li>
+  <li><strong>Avoid Internal Douching:</strong> Never wash inside the vagina; the internal canal is self-cleansing, and douching increases infection risk.</li>
+</ul>
+
+<h3>Common myths</h3>
+<ul>
+  <li><strong>Myth:</strong> "Heavily fragranced antibacterial soap is best for keeping the intimate area fresh."<br><strong>Fact:</strong> Antibacterial and heavily perfumed soaps destroy natural beneficial flora, cause chemical irritation, and actually worsen intimate odors over time.</li>
+  <li><strong>Myth:</strong> "Women need to wash inside the vagina to stay completely clean."<br><strong>Fact:</strong> The vagina is an internal self-cleansing organ. Washing internally strips protective mucus and leads to severe infections. Washing should only ever be external.</li>
+  <li><strong>Myth:</strong> "Intimate washes should only be used when an active infection is present."<br><strong>Fact:</strong> Femfresh is a daily preventive wash designed to maintain health and prevent issues before they start, not a medicine for active infections.</li>
+</ul>
+
+<h3>Scientific explanation</h3>
+<p>The scientific efficacy of Femfresh Daily Intimate Wash relies on microbiome maintenance through controlled acid-base biochemistry. By supplying bio-identical Lactic Acid, the formulation holds the pH stably at 4.5. This low pH promotes the survival of <em>Lactobacilli</em> while inhibiting pathogenic microorganisms. Concurrently, Aloe Vera polysaccharides form a protective hydro-gel layer over the stratum corneum of the vulvar epithelium, reducing transepidermal water loss (TEWL) and boosting cutaneous resilience against mechanical friction and moisture variations.</p>`,
+    "faqs": `<h3>What is Femfresh Daily Intimate Wash with Aloe Vera and how does it work?</h3>
+<p>Femfresh Daily Intimate Wash is a soap-free, dermatologically and gynaecologically tested intimate cleanser. It works by gently washing the external intimate area while maintaining the natural acidic pH balance (4.5) with Lactic Acid, Aloe Vera, and Calendula, keeping the intimate microbiome healthy and fresh for up to 24 hours.</p>
+
+<h3>Why shouldn't I use regular body shower gel for intimate hygiene?</h3>
+<p>Regular shower gels and soaps have an alkaline pH (7.0 to 9.0) that disrupts the natural acidity of the intimate area (pH 4.5). This disruption destroys friendly Lactobacilli bacteria, leading to dryness, irritation, itching, unpleasant odors, and an increased risk of yeast or bacterial infections.</p>
+
+<h3>Is Femfresh Daily Intimate Wash safe for everyday use?</h3>
+<p>Yes, Femfresh is specifically formulated for daily use as part of your shower routine. Its mild, soap-free formula cleanses gently without causing dryness or altering the natural microflora of sensitive intimate skin.</p>
+
+<h3>What are the main active ingredients in this wash?</h3>
+<p>The active ingredients are natural Aloe Vera extract for soothing hydration, Calendula flower extract for anti-inflammatory protection, Lactic Acid for pH regulation, and Triethyl Citrate for safe, lasting odor control.</p>
+
+<h3>Is Femfresh soap-free and hypoallergenic?</h3>
+<p>Yes, Femfresh Daily Intimate Wash is 100% soap-free, hypoallergenic, and clinically tested under dermatological and gynaecological supervision to ensure maximum safety for sensitive intimate skin.</p>
+
+<h3>Can I use Femfresh during my period?</h3>
+<p>Yes, using Femfresh during menstruation is highly recommended. It gently cleanses away blood residue, neutralizes period odors, and maintains freshness and comfort throughout your cycle.</p>
+
+<h3>Is Femfresh safe to use during pregnancy and breastfeeding?</h3>
+<p>Yes, Femfresh is safe for external intimate use during pregnancy and postpartum. Hormonal changes during pregnancy can alter intimate pH levels, making a pH-balanced wash with Aloe Vera an excellent choice. Consult your doctor if you have specific medical concerns post-childbirth.</p>
+
+<h3>Is Femfresh intended for internal washing (douching) or external use only?</h3>
+<p>Femfresh is strictly designed for EXTERNAL use only (cleansing the vulva). It should never be used internally or as a vaginal douche. The internal vagina is self-cleansing, and internal washing can cause severe microbiological imbalance.</p>
+
+<h3>How do I properly use Femfresh Intimate Wash?</h3>
+<p>Pour a small hazelnut-sized amount onto your wet hand or soft sponge, apply gently to the external intimate area, lather softly, and rinse thoroughly with warm water. Pat dry gently with a clean towel.</p>
+
+<h3>Does Femfresh help eliminate intimate odors?</h3>
+<p>Yes, Femfresh effectively prevents and neutralizes intimate odors by gently removing sweat and odor-causing bacteria while supporting healthy microflora, providing up to 24 hours of fresh protection.</p>
+
+<h3>Does Femfresh treat active yeast infections or Bacterial Vaginosis (BV)?</h3>
+<p>No, Femfresh is a cosmetic hygiene wash for daily maintenance and prevention, not a medical cure for active infections. If you experience abnormal discharge, intense itching, or strong foul odors, consult a physician for targeted medical treatment.</p>
+
+<h3>What is the exact pH level of Femfresh Daily Intimate Wash?</h3>
+<p>Femfresh Daily Intimate Wash is precisely formulated to a low pH of 4.5, matching the natural physiological acidic environment of healthy female intimate skin.</p>
+
+<h3>Can women with sensitive skin use this Aloe Vera wash?</h3>
+<p>Yes, the inclusion of pure Aloe Vera and Calendula makes this wash ideal for sensitive skin. It calms minor irritation, reduces friction redness, and keeps delicate skin soft and moisturized.</p>
+
+<h3>How long does a 250 ml bottle of Femfresh last?</h3>
+<p>Because only a small pea-sized amount is required per use, a single 250 ml bottle typically lasts between 2 to 3 months of daily usage.</p>
+
+<h3>Does Femfresh contain parabens or harsh sulfates?</h3>
+<p>Femfresh is formulated in accordance with strict European cosmetic safety regulations and is free from harsh parabens and aggressive soaps, using mild surfactants that cleanse safely.</p>
+
+<h3>Can teenagers use Femfresh Intimate Wash?</h3>
+<p>Yes, teenagers can safely use Femfresh from puberty onward to maintain proper intimate hygiene, manage sweat and secretion changes, and build healthy daily personal care habits.</p>
+
+<h3>Can men use Femfresh Intimate Wash?</h3>
+<p>Although formulated specifically for female intimate physiology, men can also safely use Femfresh as a mild, soap-free cleanser for sensitive intimate areas if they experience irritation from regular soaps.</p>
+
+<h3>Can Femfresh be used after intimate hair removal (waxing or shaving)?</h3>
+<p>Yes, Aloe Vera and Calendula help calm skin after hair removal in the bikini area. However, avoid applying it immediately to broken skin or fresh razor nicks to prevent mild stinging.</p>
+
+<h3>Does Femfresh have a strong artificial perfume?</h3>
+<p>No, Femfresh contains a very subtle, hypoallergenic fragrance specifically tested for intimate safety to provide delicate freshness without causing irritation or allergic reactions.</p>
+
+<h3>How should Femfresh Daily Intimate Wash be stored?</h3>
+<p>Store the bottle at room temperature (below 30°C) away from direct sunlight. Ensure the cap is closed tightly after each use to keep shower water out.</p>
+
+<h3>What is the shelf life of Femfresh after opening?</h3>
+<p>Femfresh has a Period After Opening (PAO) symbol of 12 months (12M). For optimal performance and freshness, use the product within 12 months of opening.</p>
+
+<h3>Can I use Femfresh twice a day?</h3>
+<p>Yes, you can safely use Femfresh once or twice daily (e.g. during your morning shower and after workouts). Its gentle formula will not dry out intimate skin when used twice a day.</p>
+
+<h3>Does Femfresh cause skin dryness or peeling?</h3>
+<p>No, unlike alkaline soaps that strip skin lipids, Femfresh contains hydrating Aloe Vera and Glycerin to lock in moisture, leaving intimate skin soft and hydrated.</p>
+
+<h3>Where is Femfresh Daily Intimate Wash manufactured?</h3>
+<p>Femfresh is manufactured in the United Kingdom by Church & Dwight Co., Inc. under high European quality and pharmaceutical-grade standards.</p>
+
+<h3>Can I use Femfresh while taking oral antibiotics?</h3>
+<p>Yes, antibiotics can alter body microflora, including the intimate region. Using a pH-balanced wash like Femfresh during antibiotic therapy helps support external pH balance and comfort.</p>`,
+    "tags": ["femfresh", "intimate_wash", "aloe_vera", "feminine_hygiene", "ekleel_abha"]
+  },
+  "schema": {
+    "brand": "Femfresh",
+    "category": "Personal Care / Intimate Hygiene",
+    "availability": "InStock"
+  },
+  "image_seo": {
+    "image_filename": "femfresh-daily-intimate-wash-aloe-vera-250ml.webp",
+    "alt": "Femfresh Daily Intimate Wash with Aloe Vera 250 ml",
+    "title": "Femfresh Daily Intimate Wash with Aloe Vera 250 ml"
+  }
+};
+
+const filePath = path.join(outputDir, '1459.json');
+fs.writeFileSync(filePath, JSON.stringify(productData, null, 2), 'utf8');
+console.log('Successfully generated 1459.json at:', filePath);

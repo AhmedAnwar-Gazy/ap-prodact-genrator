@@ -1,0 +1,12 @@
+{
+  "name": "antigravity-product-generator",
+  "version": "1.0.0",
+  "description": "Standalone workspace for Antigravity agents to generate product descriptions.",
+  "main": "index.js",
+  "dependencies": {
+    "mysql2": "^3.23.1"
+  },
+  "scripts": {
+    "sync": "node db_sync.js"
+  }
+}
